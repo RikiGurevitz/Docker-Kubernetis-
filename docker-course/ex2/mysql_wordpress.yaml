@@ -1,0 +1,20 @@
+version: '3.1'
+services:
+  mysql:
+    image: mysql
+    ports:
+    - 3306:3306
+    environment:
+    - MYSQL_ROOT_PASSWORD=12345
+    - MYSQL_DATABASE=wordpress
+    - MYSQL_USER=riki
+    - MYSQL_PASSWORD=123456
+  wordpress:
+    image: wordpress
+    ports:
+    - 8080:80
+    environment:
+    - WORDPRESS_DB_HOST=mysql
+    - WORDPRESS_DB_USER=riki
+    - WORDPRESS_DB_PASSWORD=123456
+    - WORDPRESS_DB_NAME=wordpress
